@@ -367,7 +367,12 @@ class BuildBtn extends StatelessWidget {
         color: btnColor,
         constraints: const BoxConstraints(),
         padding: EdgeInsets.zero,
-        onPressed: onChanged,
+        onPressed: () {
+          onChanged!();
+
+          ///turn off keyboard
+          FocusScope.of(context).unfocus();
+        },
         disabledColor: btnColor,
         splashRadius: splashRadius ?? 16,
         icon: child ?? Icon(isPlus ? Icons.add : Icons.remove, size: 16),
