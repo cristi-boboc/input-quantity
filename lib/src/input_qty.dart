@@ -275,7 +275,7 @@ class _InputQtyState extends State<InputQty> {
       );
 
   /// widget textformfield
-  Widget _buildtextfield({bool autoFocus = false}) {
+  Widget _buildtextfield({required bool autoFocus = false}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextFormField(
