@@ -100,6 +100,8 @@ class InputQty extends StatefulWidget {
 
   final bool integer;
 
+  final bool autoFocus;
+
   const InputQty({
     Key? key,
     this.initVal = 1,
@@ -121,6 +123,7 @@ class InputQty extends StatefulWidget {
     this.width = 100,
     this.textStyle,
     this.integer = true,
+    this.autoFocus = false,
   }) : super(key: key);
 
   @override
@@ -249,7 +252,7 @@ class _InputQtyState extends State<InputQty> {
                         child: widget.minusBtn,
                       );
                     }),
-                Expanded(child: _buildtextfield()),
+                Expanded(child: _buildtextfield(autoFocus: widget.autoFocus)),
                 ValueListenableBuilder<num?>(
                     valueListenable: currentval,
                     builder: (context, value, child) {
@@ -272,10 +275,11 @@ class _InputQtyState extends State<InputQty> {
       );
 
   /// widget textformfield
-  Widget _buildtextfield() {
+  Widget _buildtextfield({bool autoFocus = false}) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: TextFormField(
+        autofocus: autoFocus,
         textAlign: TextAlign.center,
         decoration: widget.textFieldDecoration ?? _inputDecoration,
         style: widget.textStyle,
